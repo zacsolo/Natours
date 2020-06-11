@@ -10,6 +10,7 @@
   transform: skewX(-12deg);
 
   &__shape {
+    position: relative;
     width: 15rem;
     height: 15rem;
     float: left;
@@ -23,9 +24,34 @@
 
   &__img {
     height: 100%;
+    transform: translateX(-3.5rem) scale(1.4);
+    transition: all 0.5s;
   }
 
   &__text {
     transform: skewX(12deg);
+  }
+
+  &__caption {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, 20%);
+    color: $color-white;
+    text-transform: uppercase;
+    font-size: 1.7rem;
+    text-align: center;
+    opacity: 0;
+    transition: all 0.5s;
+    backface-visibility: hidden;
+  }
+
+  &:hover &__caption {
+    opacity: 1;
+    transform: translate(-50%, -50%);
+  }
+  &:hover &__img {
+    transform: translateX(-3.5rem) scale(1);
+    filter: blur(3px) brightness(80%);
   }
 }

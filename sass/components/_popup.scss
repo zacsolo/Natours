@@ -26,20 +26,38 @@
   &__left {
     width: 33.333333%;
     display: table-cell;
+    @include respond(tab-land) {
+      display: inline-block;
+      width: 100%;
+      padding: 0 5rem;
+    }
   }
   &__right {
     width: 66.666667%;
     display: table-cell;
     vertical-align: middle;
     padding: 3rem 5rem;
+    @include respond(tab-land) {
+      display: inline-block;
+      width: 100%;
+    }
   }
   &__img {
-    display: block;
+    display: inline-block;
     width: 100%;
+    @include respond(tab-land) {
+      display: inline-block;
+      width: 49%;
+      margin: 0;
+      padding: 0;
+    }
+    @include respond(phone) {
+      display: none;
+    }
   }
   &__text {
     font-size: 1.4rem;
-    margin-bottom: 1.4rem;
+    padding-bottom: 1.4rem;
 
     -moz-column-count: 2;
     -moz-column-gap: 4rem;
@@ -52,6 +70,15 @@
     -webkit-hyphens: auto;
     -ms-hyphens: auto;
     hyphens: auto;
+
+    @include respond(tab-land) {
+      -moz-column-count: 1;
+      -moz-column-gap: 0;
+      -moz-column-rule: none;
+      column-count: 1;
+      column-gap: 0;
+      column-rule: none;
+    }
   }
   //Open States
   &:target {
